@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'login.apps.LoginConfig',
+    'nowPlaying.apps.NowplayingConfig',
     'article.apps.ArticleConfig',
     'main.apps.MainConfig',
     'django.contrib.admin',
