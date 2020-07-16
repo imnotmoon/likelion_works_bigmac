@@ -7,14 +7,18 @@ from collections import OrderedDict
 # Create your views here.
 def home(request):
     movieList = xmltodict.parse(conn.movieList())
+    movieThumbnails = conn.movieInfo()
     items = []
     for movie in movieList['response']['body']['items']['item'] :
-        print("title : " + movie['title'])
-        print("  grade : " + movie['grade'])
-        print("  subDescription : " + movie['subDescription'])
-        # print("  issuedDate : " + movie['issuedDate'])
-        movie = Movie()
-        movie.title = movie['title']
-        movie.
-
-    return render(request, 'main.html', {'movielist' : movieList})
+        m = Movies()
+        m.title = movie['title']
+        for thumbnails in movieThumbnails:
+            if m.title in thumbnails[0]:
+                print(thumbnails)
+                m.poster = thumbnails[1]
+        m.grade = int(movie['grade'][4:6])
+        m.subDescription = movie['subDescription']
+        m.postdate = movie['issuedDate']
+        items.append(m)
+        
+    return render(request, 'main.html', {'movielist' : items})

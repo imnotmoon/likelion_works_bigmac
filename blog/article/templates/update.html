@@ -14,10 +14,10 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
               <ul class="navbar-nav">
-                <li class="nav-item active">
+                <li class="nav-item">
                   <a class="nav-link" href="{% url 'nowPlaying' %}"> 현재 상영작 <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item active">
                   <a class="nav-link" href="{% url 'articles' %}">후기</a>
                 </li>
                 <li class="nav-item">
@@ -29,16 +29,6 @@
               </ul>
             </div>
           </nav>
-          <div style="padding-left: 30px; padding-top: 30px;">
-            {% for movie in movielist %}
-              <div>
-                <div style="display: grid; grid-template-columns: 100px 500px; padding-bottom: 10px;">
-                  <img src="{{ movie.poster }}">
-                  <h3 style="padding-left: 10px; padding-top: 30px;"><a href="#">{{ movie.title }}</a></h3>
-                </div>
-              </div>
-            {% endfor %}
-          </div>
     </body>
 
 </html>

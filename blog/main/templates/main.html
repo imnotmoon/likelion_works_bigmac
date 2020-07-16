@@ -29,6 +29,18 @@
               </ul>
             </div>
           </nav>
+          <div style="display: grid; grid-template-columns: 500px 500px 500px; grid-template-rows: 400px 400px 400px;">
+          {% for movie in movielist %}
+            <div style="padding-left: 30px; padding-top: 30px;">
+              <p>{{ forloop.counter }} 위</p>
+              <img src="{{ movie.poster }} " width="150px" height="210px">
+              <h3><a href=# style="color: black;">{{ movie.title }}</a></h3>
+              <br>
+              <p>{{ movie.postdate }}</p>
+              <p>{{ movie.subDescription }}</p>
+            </div>
+          {% endfor %}
+          </div>
     </body>
 
 </html>
