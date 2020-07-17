@@ -21,14 +21,20 @@
                   <a class="nav-link" href="{% url 'articles' %}">후기</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Pricing</a>
+                  <a class="nav-link" href="http://www.cgv.co.kr/">예매하기</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                  <a class="nav-link disabled" href="{% url 'donate' %}" tabindex="-1" aria-disabled="true">Disabled</a>
                 </li>
               </ul>
             </div>
           </nav>
+          <h1>{{ article.title }}</h1>
+            <p>{{ article.pub_date }}</p>
+            <p>{{ article.body }}</p>
+            <a href="{% url 'articles' %}"> 돌아가기 </a>
+            <a href="{% url 'delete' article.id%}"> 삭제 </a>
+            <a href="{% url 'update' article.id%}"> 수정 </a>
     </body>
 
 </html>

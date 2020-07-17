@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        {% load static %}
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <!-- Bootstrap CSS -->
@@ -17,36 +18,27 @@
                 <li class="nav-item">
                   <a class="nav-link" href="{% url 'nowPlaying' %}"> 현재 상영작 <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item active">
+                <li class="nav-item">
                   <a class="nav-link" href="{% url 'articles' %}">후기</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="http://www.cgv.co.kr/">예매하기</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link disabled" href="{% url 'donate' %}" tabindex="-1" aria-disabled="true">Disabled</a>
+                  <a class="nav-link disabled" href="{% url 'donate' %}" tabindex="-1" aria-disabled="true">후원하기</a>
                 </li>
               </ul>
             </div>
           </nav>
-          <div class="container" style="padding-top: 30px;">
-            <form action="{% url 'create' %}">
-              <h4>제목: </h4>
-              <input type="text" name="title">
-              <br>
-              <h4>닉네임: </h4>
-              <input type="text" name="author">
-              <br>
-              <h4>본문: </h4>
-              <textarea cols=40 rows=10 name="body"></textarea>
-              <br>
-              <h4>비밀번호: </h4>
-              <input type="text" name="password">
-              <br>
-              <br>
-              <input class="btn btn-dark" type="submit" value="제출하기">
-           </form>
-         </div>
+          <img src="{% static 'img/donate.png' %}" style="padding-top: 30px; padding-left: 30px;">
+          <div style="padding-left: 30px; padding-top: 10px; width: 500px;">
+            <br>
+            <h1 style="color: crimson;">제 캐릭터가 많이 아픕니다</h1>
+            <br>
+            <h3>코디도 못하고 장비도 구립니다</h3>
+            <br>
+            <h3 style="color: yellow; background-color: black;">3333-11-3188993 카카오 문상혁</h3>
+          </div>
     </body>
 
 </html>

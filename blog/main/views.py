@@ -22,3 +22,6 @@ def home(request):
         items.append(m)
         
     return render(request, 'main.html', {'movielist' : items})
+
+def donate(request):
+    return render(request, 'donate.html')
