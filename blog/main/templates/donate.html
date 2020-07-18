@@ -6,6 +6,25 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        <script type="text/javascript">
+          window.onload = function changeBackground() {
+            var bg = document.getElementById("blindinglights");
+            var title = document.getElementById('title');
+              (async () => {
+              await window.setInterval(() => {
+                if(bg.style.backgroundColor == "red") {
+                  console.log("color changed");
+                  bg.style.backgroundColor = "yellow";
+                  title.style.color="red";
+                } else {
+                  console.log("color changed!!!!");
+                  bg.style.backgroundColor = "red";
+                  title.style.color="yellow";
+                }
+              }, 500);
+              })();
+          }
+        </script>
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -30,14 +49,16 @@
               </ul>
             </div>
           </nav>
-          <img src="{% static 'img/donate.png' %}" style="padding-top: 30px; padding-left: 30px;">
-          <div style="padding-left: 30px; padding-top: 10px; width: 500px;">
-            <br>
-            <h1 style="color: crimson;">제 캐릭터가 많이 아픕니다</h1>
-            <br>
-            <h3>코디도 못하고 장비도 구립니다</h3>
-            <br>
-            <h3 style="color: yellow; background-color: black;">3333-11-3188993 카카오 문상혁</h3>
+          <div style="padding-left: 50px; width: 2000px; height: 3000px;" id='blindinglights'>
+            <img src="{% static 'img/donate.png' %}" style="padding-top: 30px; padding-left: 30px;">
+            <div style="padding-left: 30px; padding-top: 10px; width: 500px;">
+              <br>
+              <h1 style="color: crimson;" id='title'>제 캐릭터가 많이 아픕니다</h1>
+              <br>
+              <h3>장비강화도 못하는 하루살이 인생입니다</h3>
+              <br>
+              <h3 style="color: yellow; background-color: black;">3333-11-3188993 카카오 문상혁</h3>
+            </div>
           </div>
     </body>
 
