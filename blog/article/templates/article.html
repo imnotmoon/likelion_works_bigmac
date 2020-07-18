@@ -3,7 +3,8 @@
 {% block content %}
 
   <div style="padding-left: 30px; padding-top: 30px;">
-    <h3><a href="{% url 'write' %}">글쓰기</a></h1>
+    <h3><a href="{% url 'write' %}">글쓰기</a></h3>
+    <h3><a href="{% url 'fake' %}">FAKE</a></h3>
   </div>
   {% for article in articles %}
       <ol style="padding-left: 30px; padding-top: 30px;">
