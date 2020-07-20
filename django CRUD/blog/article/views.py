@@ -3,12 +3,16 @@ from .models import Articles
 from django.utils import timezone
 from .form import ArticleUpdate
 from faker import Faker
+from django.core.paginator import Paginator
 
 
 # Create your views here.
 def article(request):
     articles = Articles.objects.all()
-    return render(request, 'article.html', {'articles' : articles})
+    paginator = Paginator(articles, 10)
+    page = request.GET.get('page')
+    posts = paginator.get_page(page)
+    return render(request, 'article.html', {'articles' : articles, 'posts' : posts})
 
 def create(request):
     article = Articles()
