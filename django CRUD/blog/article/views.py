@@ -4,12 +4,14 @@ from django.utils import timezone
 from .form import ArticleUpdate
 from faker import Faker
 from django.core.paginator import Paginator
+from django.contrib.auth.models import User
+from django.contrib import auth
 
 
 # Create your views here.
 def article(request):
     articles = Articles.objects.all()
-    paginator = Paginator(articles, 10)
+    paginator = Paginator(articles, 5)
     page = request.GET.get('page')
     posts = paginator.get_page(page)
     return render(request, 'article.html', {'articles' : articles, 'posts' : posts})
@@ -18,12 +20,18 @@ def create(request):
     article = Articles()
     article.title = request.GET['title']
     article.body = request.GET['body']
+    article.author = request.user.username
     article.pub_date = timezone.datetime.now()
     article.save()
     return redirect('/article/')
 
 def write(request):
-    return render(request, 'write.html')
+    print(request.user.is_authenticated)
+    print(request.user.username)
+    if request.user.is_authenticated :
+        return render(request, 'write.html')
+    else :
+        return render(request, 'article.html', {'error':'Session Required'})
 
 def detail(request, article_id):
     article_detail = get_object_or_404(Articles, pk=article_id)
@@ -55,8 +63,9 @@ def update(request, article_id):
 def fake(request):
     for i in range(10):
         blog = Articles()
-        myfake = Faker()
-        blog.title = myfake.name()
+        myfake = Faker('ko_KR')
+        blog.title = myfake.sentence()
+        blog.author = myfake.name()
         txt = ''
         for j in range(10):
             txt = txt + myfake.text()

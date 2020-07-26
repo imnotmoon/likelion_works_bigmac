@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div style="padding-left: 10%; padding-top: 3%;">
+    <h2>Sign up</h2>
+    {% if error %}
+    <h3>{{error}}</h3>
+    <br>
+    <br>
+    {% endif %}
+    <script type='text/javascript'>
+        window.onload = function() {
+            let message = "{{alert}}";
+            console.log(message);
+            if(message != "") {
+                alert(message);
+            }
+        }
+    </script>
+    <form action="{% url 'signup' %}" method="POST">
+        {% csrf_token %}
+        <br>
+        <br>
+        <h3>User name</h3>
+        <input name="username" type="text" value="">
+        <br>
+        <br>
+        <h3>Password</h3>
+        <input name="password" type="password" value="">
+        <br>
+        <br>
+        <h3>Confirm Password</h3>
+        <input name="passwordCheck" type="password" value="">
+        <br>
+        <br>
+        <input class="button" type="submit" value="SIGN UP">
+    </form>
+    <a href="{% url 'add_fake_members' %}"><button>FAKE REGISTER</button></a>
+</div>
+{% endblock %}

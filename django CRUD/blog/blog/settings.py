@@ -31,7 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'login.apps.LoginConfig',
+    'accounts.apps.AccountsConfig',
     'nowPlaying.apps.NowplayingConfig',
     'article.apps.ArticleConfig',
     'main.apps.MainConfig',

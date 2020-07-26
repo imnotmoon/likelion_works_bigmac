@@ -1,33 +1,47 @@
 {% extends 'base.html' %}
 
 {% block content %}
+  <script type='text/javascript'>
+    window.onload = function() {
+        let message = "{{error}}";
+        console.log(message);
+        if(message != "") {
+            alert(message);
+        }
+    }
+  </script>
 
-  <div style="padding-left: 30px; padding-top: 30px;">
+  <div style="padding-left: 30px; padding-top: 30px; display: grid; grid-template-columns: 100px 100px;">
     <h3><a href="{% url 'write' %}">글쓰기</a></h3>
     <h3><a href="{% url 'fake' %}">FAKE</a></h3>
   </div>
   {% for article in articles %}
-      <ol style="padding-left: 30px; padding-top: 30px;">
-          <div>
-              <h3><a href="{% url 'detail' article.id %}">{{ article.title }}</a></h3>
-              <p>{{ article.pub_date }}</p>
-              <p>{{ article.summary }} <a href="#">...more</a></p>
-          </div>
-      </ol>
+  <span>
+    <ol style="padding-left: 30px; padding-top: 30px;">
+        <div>
+            <h3><a href="{% url 'detail' article.id %}">{{ article.title }}</a></h3>
+            <p>작성일 : {{ article.pub_date|date:"Y년 m월 d일 h시 i분" }}</p>
+            <p>작성자 : {{ article.author }} </p>
+            <p>{{ article.summary }}</p>
+        </div>
+    </ol>
+  </span>
   {% endfor %}
 
   {% if posts.has_previous %}
+      <div style="padding-left: 20px;">
       <a href="?page=1">First</a>
       <a href="?page={{ posts.previous_page_number }}">Previous</a>
-    {% endif %}
+      {% endif %}
+      
+      <span>{{ posts.number }}</span>
+      <span>of</span>
+      <span>{{ posts.paginator.num_pages }}</span>
 
-    <span>{{ posts.number }}</span>
-    <span>of</span>
-    <span>{{ posts.paginator.num_pages }}</span>
-
-    {% if posts.has_next %}
-      <a href="?page={{ posts.next_page_number }}">Next</a>
-      <a href="?page={{ posts.paginator.num_pages }}">Last</a>
-    {% endif %}
+      {% if posts.has_next %}
+        <a href="?page={{ posts.next_page_number }}">Next</a>
+        <a href="?page={{ posts.paginator.num_pages }}">Last</a>
+      {% endif %}
+      </div>
 
   {% endblock %}

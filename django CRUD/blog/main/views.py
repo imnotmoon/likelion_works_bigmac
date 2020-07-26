@@ -25,3 +25,6 @@ def home(request):
 
 def donate(request):
     return render(request, 'donate.html')
+
+def mylocation(request):
+    return render(request, 'mylocation.html')

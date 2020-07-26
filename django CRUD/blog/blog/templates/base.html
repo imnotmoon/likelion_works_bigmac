@@ -5,6 +5,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        <style>
+          #auth_btn {
+            background-color : rgba(0,0,0,0);
+            color:darkgrey;
+            border : 1px solid;
+            border-radius: 5px; 
+            margin-left: 10px;
+            }
+        </style>
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -26,8 +35,21 @@
                 <li class="nav-item">
                   <a class="nav-link" href="{% url 'donate' %}" tabindex="-1">후원하기</a>
                 </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'mylocation' %}">내 위치</a>
+                </li>
               </ul>
             </div>
+            {% if user.is_authenticated  %}
+            <p style="color: blanchedalmond;">{{user.username}}님 반갑읍니다~~^^</p>
+            <a href="javascript:{document.getElementById('logout').submit()}"><button id="auth_btn">log out</button></a>
+            <form id='logout' method='POST' action="{% url 'logout' %}">
+              {% csrf_token %} <input type="hidden">
+            </form>
+            {% else %}
+            <a href="{% url 'signup' %}"><button id="auth_btn">sign up</button></a>
+            <a href="{% url 'login' %}"><button id="auth_btn">log in</button></a>
+            {% endif %}
           </nav>
         {% block content %}
         {% endblock %}
