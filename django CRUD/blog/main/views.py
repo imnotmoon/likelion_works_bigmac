@@ -27,4 +27,7 @@ def donate(request):
     return render(request, 'donate.html')
 
 def mylocation(request):
-    return render(request, 'mylocation.html')
+    f = open('main/key', 'r')
+    key = f.readline()
+    print(key)
+    return render(request, 'mylocation.html', {'key' : key})
