@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://a-v2.sndcdn.com/assets/images/sc-icons/favicon-2cadd14bdb.ico" rel="icon">
     <!-- css -->
-    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}" type="text/css">
     <!-- scripts -->
     <title>Discover on SoundCloud</title>
 </head>
@@ -14,31 +14,218 @@
     <header>
         <div class="header-container">
             <!-- _, home, stream, library -->
-            <div>
-
+            <div class="header-navMenu">
+                <div class="main-icon header-button gradation">
+                    <img src="{% static 'img/soundcloud-title.png' %}" alt="soundcloud" style="height: 24px;" class="cloud">
+                </div>
+                <div class="header-button header-items">
+                    <a class="header-navMenuItem" href="#">Home</a>
+                </div>
+                <div class="header-button header-items">
+                    <a class="header-navMenuItem" href="#">Stream</a>
+                </div>
+                <div class="header-button header-items">
+                    <a class="header-navMenuItem" href="#">Library</a>
+                </div>
             </div>
             <!-- searchbox -->
-            <div>
-
+            <div class="searchbox">
+                <input class="search" type="text" placeholder="Search for artists, bands, tracks, podcasts">
             </div>
             <!-- auth -->
-            <div>
-
+            <div class="login-menu">
+                <button id="signin">
+                    Sign in
+                </button>
+                <button id="create-account">
+                    Create account
+                </button>
+            </div>
+            <div class="header-right">
+                <a href="#" class="header-rightButton">Upload</a>
+            </div>
+            <div class="header-right signin">
+                <a href="#" class="header-rightButton">more</a>
             </div>
         </div>
     </header>
     <!-- left container -->
-    <div>
+    <div class="container">
+        <div class="left-container">
+            <ul>
+                <li>
+                    <h2>
+                        Chill
+                    </h2>
+                    <p class="light-gray">Popular playlists from the SoundCloud community</p>
+                    <div class="slider-section">
+                        <div class="slider-pannel">
+                            <div class="slider-item">
+                            </div>
+                            <div class="slider-item"></div>
+                            <div class="slider-item"></div>
+                            <div class="slider-item"></div>
+                            <div class="slider-item"></div>
+                            <div class="slider-item"></div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <h2>
+                        Party
+                    </h2>
+                    <p class="light-gray">Popular playlists from the SoundCloud community</p>
+                    <div class="slider-section">
+                        <div class="slider-pannel">
+                            <div class="slider-item">
+                            </div>
+                            <div class="slider-item"></div>
+                            <div class="slider-item"></div>
+                            <div class="slider-item"></div>
+                            <div class="slider-item"></div>
+                            <div class="slider-item"></div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <h2>
+                        Relax
+                    </h2>
+                    <p class="light-gray">Popular playlists from the SoundCloud community</p>
+                    <div class="slider-section">
+                        <div class="slider-pannel">
+                            <div class="slider-item">
+                            </div>
+                            <div class="slider-item"></div>
+                            <div class="slider-item"></div>
+                            <div class="slider-item"></div>
+                            <div class="slider-item"></div>
+                            <div class="slider-item"></div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <h2>
+                        Study
+                    </h2>
+                    <p class="light-gray">Popular playlists from the SoundCloud community</p>
+                    <div class="slider-section">
+                        <div class="slider-pannel">
+                            <div class="slider-item">
+                            </div>
+                            <div class="slider-item"></div>
+                            <div class="slider-item"></div>
+                            <div class="slider-item"></div>
+                            <div class="slider-item"></div>
+                            <div class="slider-item"></div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <h2>
+                        Workout
+                    </h2>
+                    <p class="light-gray">Popular playlists from the SoundCloud community</p>
+                    <div class="slider-section">
+                        <div class="slider-pannel">
+                            <div class="slider-item">
+                            </div>
+                            <div class="slider-item"></div>
+                            <div class="slider-item"></div>
+                            <div class="slider-item"></div>
+                            <div class="slider-item"></div>
+                            <div class="slider-item"></div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <h2>
+                        Sleep
+                    </h2>
+                    <p class="light-gray">Popular playlists from the SoundCloud community</p>
+                    <div class="slider-section">
+                        <div class="slider-pannel">
+                            <div class="slider-item">
+                            </div>
+                            <div class="slider-item"></div>
+                            <div class="slider-item"></div>
+                            <div class="slider-item"></div>
+                            <div class="slider-item"></div>
+                            <div class="slider-item"></div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <h2>
+                        Charts: New & hot
+                    </h2>
+                    <p class="light-gray">Up-and-coming tracks on SoundCloud</p>
+                    <div class="slider-section">
+                        <div class="slider-pannel">
+                            <div class="slider-item">
+                            </div>
+                            <div class="slider-item"></div>
+                            <div class="slider-item"></div>
+                            <div class="slider-item"></div>
+                            <div class="slider-item"></div>
+                            <div class="slider-item"></div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <h2>
+                        Charts: Top 50
+                    </h2>
+                    <p class="light-gray">The most played tracks on SoundCloud this week</p>
+                    <div class="slider-section">
+                        <div class="slider-pannel">
+                            <div class="slider-item">
+                            </div>
+                            <div class="slider-item"></div>
+                            <div class="slider-item"></div>
+                            <div class="slider-item"></div>
+                            <div class="slider-item"></div>
+                            <div class="slider-item"></div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <!-- right container -->
+        <div class="right-container">
+            <h3 class="light-gray">Go mobile</h3>
+            <div class="sidebar-contents">
+                <div class="sidebar-contents-inner">
+                    <a id="appstore" href="#">
 
-    </div>
-    <!-- right container -->
-    <div>
+                    </a>
+                    <a id="googleplay" href="#">
 
+                    </a>
+                </div>
+            </div>
+            <footer>
+                <a href="#" class="footer-button">Legal</a>
+                <a href="#" class="footer-button">Privacy-Cookies</a>
+                <a href="#" class="footer-button">Imprint</a>
+                <a href="#" class="footer-button">Creator</a>
+                <a href="#" class="footer-button">Blog</a>
+                <a href="#" class="footer-button">Charts</a>
+                <a href="#" class="footer-button">Popular searches</a>
+                <div>
+                    <a href="#" id="lang">Language</a>
+                    <a href="#" id="lang-selector">English</a>
+                </div>
+            </footer>
+        </div>
     </div>
-    
     <!-- accept cookie policies -->
-    <footer>
-
-    </footer>
+    <div>
+        With your consent, we would like to use cookies and similar 
+        technologies to enhance your experience with our service, 
+        for analytics, and for advertising purposes. 
+        You can learn more about this in our <a>Cookie Policy</a> and our <a>Privacy Policy</a>. 
+        You may revoke your consent at any time once logged in, in your account Settings.
+    </div>
 </body>
 </html>
