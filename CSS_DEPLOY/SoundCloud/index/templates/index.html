@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <link href="https://a-v2.sndcdn.com/assets/images/sc-icons/favicon-2cadd14bdb.ico" rel="icon">
+    <!-- css -->
+    <link rel="stylesheet" href="{% static 'css/index.css' %}" type="text/css">
+    <!-- scripts -->
+    <title>Discover on SoundCloud</title>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <!-- _, home, stream, library -->
+            <div class="header-navMenu">
+                <div class="main-icon header-button gradation">
+                    <div><img src="{% static 'img/soundcloud-title.png' %}" alt="soundcloud" style="height: 22px;" class="cloud"></div>
+                    <img id="title" src="{% static 'img/title.png' %}">
+                </div>
+                <div class="header-button header-items">
+                    <a class="header-navMenuItem" href="#">Home</a>
+                </div>
+                <div class="header-button header-items">
+                    <a class="header-navMenuItem" href="#">Stream</a>
+                </div>
+                <div class="header-button header-items">
+                    <a class="header-navMenuItem" href="#">Library</a>
+                </div>
+            </div>
+            <!-- searchbox -->
+            <div class="searchbox"  style="min-width: 150px;">
+                <form action="#" class="search">
+                    <input class="searchbox" type="text" placeholder="Search for artists, bands, tracks, podcasts">
+                    <img src="{% static 'img/search.svg' %}" alt="" class="searchbtn">
+                </form>
+            </div>
+            <!-- auth -->
+            <div class="login-menu">
+                <button id="signin">
+                    Sign in
+                </button>
+                <button id="create-account">
+                    Create account
+                </button>
+            </div>
+            <div class="header-right upload">
+                <a href="#" class="header-rightButton uploadbtn">Upload</a>
+            </div>
+            <div class="header-right more">
+                <a href="#" class="header-rightButton">
+                    <img src="{% static 'img/more.svg' %}" alt="" class="morebtn">
+                </a>
+            </div>
+        </div>
+    </header>
+    <!-- left container -->
+    <div class="container">
+        <div class="left-container">
+            <ul class="list-container" style="list-style-type: none;">
+                <!-- for loop -->
+                {% for playlist in playlists %}
+                    <li style="position: relative; display: block; width: 100%; padding-bottom: 70px; border-bottom: solid #eeeeee 0.5px;">
+                        <div class="itemlist">
+                            <h2 class="playlist-category">{{ playlist.category }}</h2>
+                            <p class="playlist-subscription">Popular playlists from the SoundCloud community</p>
+                            <div class="grid-items">
+                            {% for item in playlist.contents %}
+                                <div class="grid-item">
+                                    <div class="item-image"></div>
+                                    <div class="item-title">
+                                        <div>{{ item.title }}</div>
+                                    </div>
+                                    <div class="item-name">
+                                        <div>{{ item.name }}</div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                            </div>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <!-- right container -->
+        <div class="right-container">
+                <div class="right-inner">
+                    <div class="go-mobile"><h3 style="display: block;">Go mobile</h3></div>
+                    <div class="sidebar-contents">
+                        <div class="sidebar-contents-inner">
+                            <img src="{% static 'img/appstore.png' %}" alt="" id="appstore">
+                            <img src="{% static 'img/google-play.png' %}" alt="" id="google-play">
+                        </div>
+                </div>
+            </div>
+            <footer>
+                <a href="#" class="footer-button">Legal</a>
+                <a href="#" class="footer-button">Privacy-Cookies</a>
+                <a href="#" class="footer-button">Imprint</a>
+                <a href="#" class="footer-button">Creator</a>
+                <a href="#" class="footer-button">Blog</a>
+                <a href="#" class="footer-button">Charts</a>
+                <a href="#" class="footer-button">Popular searches</a>
+                <div class="last">
+                    <a href="#" id="lang">Language : </a>
+                    <a href="#" id="lang-selector">English (US)</a>
+                </div>
+            </footer>
+        </div>
+    </div>
+</body>
+</html>
