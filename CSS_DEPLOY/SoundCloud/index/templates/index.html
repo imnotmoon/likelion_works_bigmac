@@ -3,12 +3,26 @@
 <head>
     {% load static %}
     <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
     <link href="https://a-v2.sndcdn.com/assets/images/sc-icons/favicon-2cadd14bdb.ico" rel="icon">
     <!-- css -->
     <link rel="stylesheet" href="{% static 'css/index.css' %}" type="text/css">
     <!-- scripts -->
     <title>Discover on SoundCloud</title>
+    <script>
+        $(document).ready(function() {
+            $('.btn').click(function() {
+                console.log("clicked");
+                let me = $('.dropdown-menu');
+                if(me.hasClass('hidden')) {
+                    me.removeClass('hidden');
+                } else {
+                    me.addClass('hidden');
+                }
+            });
+        });
+    </script>
 </head>
 <body>
     <header>
@@ -48,13 +62,30 @@
             <div class="header-right upload">
                 <a href="#" class="header-rightButton uploadbtn">Upload</a>
             </div>
-            <div class="header-right more">
-                <a href="#" class="header-rightButton">
-                    <img src="{% static 'img/more.svg' %}" alt="" class="morebtn">
-                </a>
+            <div class="header-right more btn">
+                <!-- <a href="#" class="header-rightButton"> -->
+                    <a class="header-rightButton">
+                        <img src="{% static 'img/more.svg' %}" alt="" class="morebtn btn">
+                    </a>
+                <!-- </a> -->
             </div>
         </div>
     </header>
+    <!-- hidden menu -->
+    <div class="dropdown-menu">
+        <div class="more-menu">About us</div>
+        <div class="more-menu">Legal</div>
+        <div class="more-menu bordered">Copyright</div>
+        <div class="more-menu">Mobile apps</div>
+        <div class="more-menu">Pulse app for Creators</div>
+        <div class="more-menu">For Creators</div>
+        <div class="more-menu">Blog</div>
+        <div class="more-menu bordered">거의</div>
+        <div class="more-menu">다했다</div>
+        <div class="more-menu">시원아</div>
+        <div class="more-menu bordered">적당히</div>
+        <div class="more-menu">봐줘</div>
+    </div>
     <!-- left container -->
     <div class="container">
         <div class="left-container">
@@ -95,12 +126,12 @@
                 </div>
             </div>
             <footer>
-                <a href="#" class="footer-button">Legal</a>
-                <a href="#" class="footer-button">Privacy-Cookies</a>
-                <a href="#" class="footer-button">Imprint</a>
-                <a href="#" class="footer-button">Creator</a>
-                <a href="#" class="footer-button">Blog</a>
-                <a href="#" class="footer-button">Charts</a>
+                <a href="#" class="footer-button">Legal . </a>
+                <a href="#" class="footer-button">Privacy-Cookies . </a>
+                <a href="#" class="footer-button">Imprint . </a>
+                <a href="#" class="footer-button">Creator . </a>
+                <a href="#" class="footer-button">Blog . </a>
+                <a href="#" class="footer-button">Charts .</a>
                 <a href="#" class="footer-button">Popular searches</a>
                 <div class="last">
                     <a href="#" id="lang">Language : </a>
